@@ -20,7 +20,8 @@ import Performance from "./components/Performance";
 import Profile from "./components/Profile";
 import LeaderBoard from "./components/LeaderBoard";
 
-axios.defaults.baseURL = "http://localhost:8000/v1";
+// axios.defaults.baseURL = "http://localhost:8000/v1";
+axios.defaults.baseURL = "https://server-language-quiz.onrender.com";
 
 //If user is authorized then send user to the Protected Route else Navigate to auth page.
 const ProtectedRoute = ({ element, isAuthenticated }) => {
