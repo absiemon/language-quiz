@@ -36,7 +36,7 @@ input[type=number]::-webkit-inner-spin-button {
   }
 }
 
-
+/* MUI Overring css */
 .css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
   background-color: #083156 !important;
   margin-top: 3px;
@@ -71,4 +71,12 @@ input[type=number]::-webkit-inner-spin-button {
 .css-1gz1y6s{
   background-color:#083156 !important;
   color:#D1FAE5 !important;
+}
+
+.css-1w0ym84{
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.css-t752vm{
+  background-color:#083156 !important;
 }
