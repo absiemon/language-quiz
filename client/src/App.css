@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Poppins:wght@400&display=swap');
+
+:root{
+  font-family: 'Nunito', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: #D1FAE5;
+}
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #083156;
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+
+@media  screen and (max-width:1000px) {
+  .indexPage{
+    display: flex !important;
+    flex-direction: column-reverse !important;
+  }
+}
+@media  screen and (max-width:900px) {
+  .auth_page{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+  }
+}
+
+
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper{
+  background-color: #083156 !important;
+  margin-top: 3px;
+}
