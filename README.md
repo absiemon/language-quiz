@@ -1,21 +1,25 @@
 # Full stack Application
-This is a full-stack web application that allows users to view and interact with a list of users. The mock data for the users can be found at this link.
-**The mock data for the users can be found at this link**
-https://drive.google.com/file/d/1ibmr3WD7Jw6oLL6O_W390WojCLfCHw-k/view?usp=sharing. 
+This is a full-stack web application that allows users to give language based quiz. This app inclued interactive and user-friendly UI for the
+quiz.
+**Gathering and refactoring data was a tough process hence test is available in only Hindi, English, Spanish, Italian langauge.**
+**The mock data for the questions can be found in server/data/data.json.**
+
+**Demo credential:**
+   -**Email: sm@gmail.com**
+   -**Password: Sam1222@**
 
 ## The application has the following functionalities:
-- **Users in cards format with pagination: The users has been displayed in a visually appealing card format. Implemented pagination to display 20 users per page.**
-- **Search by Name: Users would be able to search for users by their names. As the user types in the search input, the list of displayed users would be dynamically updated to match the search query.**
-- **Added 3 filters: Implemenedt three filters - Domain, Gender, and Availability. Users would be able to select multiple filters simultaneously, and the displayed user list would be updated accordingly.**
-- **Create a team: Users would be able to create a team by selecting users from the list. Only users with unique domains and availability would be selectable for the team (similar to adding items to a cart in e-commerce websites).**
-- **Show team details: Once the team is created, displaying the details of the team, including the selected users' information.**
-- **Made it responsive: Ensured that the application is responsive and displays properly on different screen sizes.**
+- **Authentication: User will be able to login and singup using credentials. Strong password required of minimum 6 length, one lowercase, uppercase, number and special char. Invalid email will not be accepted.**
 
+- **Quiz: User can select a langage based upon that he will be redirected to test page. One question at a time will be given. Progress of the test will be indicated through Progress bar. If someone leave the test from mid he will not get any score.**
+- **Performance: Performance tab will have information regarding performance in all the test. Interective UI to show performance in each excercise of each leanguage**
+- **LeaderBoard: Leader board tab will have information regarding top-performing users in specific language.**
+- **Profile: Profile tab will have information the user and button to reset their progress if they want to start over.**
 
 ## Installation
 1. Clone the project repository to your local machine:
    ```bash
-   git clone https://github.com/absiemon/heliverse-assignment.git
+   git clone https://github.com/absiemon/language-quiz.git
    ```
 2. Naviagte to the client and server one by one and download the required node packages using the npm install command:
 
@@ -25,6 +29,7 @@ $ npm install
 3. Create a .env file in the server directory of the application and add the following variables:
 ```bash
 MONGO_URL= your mongoDB url
+JWT_SECRET = your jwt secret
 ```
 4. Start the backend by executing this command:
 ```bash
@@ -32,7 +37,7 @@ $ npm run dev
 ```
 5. Start the frontend by executing this command:
 ```bash
-$ npm start
+$ npm run dev
 ```
 ## Contributing
 
