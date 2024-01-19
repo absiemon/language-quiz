@@ -41,3 +41,9 @@ input[type=number]::-webkit-inner-spin-button {
   background-color: #083156 !important;
   margin-top: 3px;
 }
+
+.css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root{
+  background-color:#083156 !important;
+  color:#D1FAE5 !important;
+  font-family: 'Poppins', sans-serif !important;
+}
