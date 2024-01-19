@@ -119,7 +119,7 @@ export const login = async (req, res) => {
         return res.status(400).json({ error: "Invalid credentials" });
       }
     } else {
-      return res.status(200).json({ error: "User not found" });
+      return res.status(400).json({ error: "User not found" });
     }
   } catch (err) {
     res.status(422).json({ error: "Login failed", details: err.message });

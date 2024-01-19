@@ -1,6 +1,6 @@
 import { Container, Divider } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import welcome from "../data/welcome.png";
+import welcome from "../data/Welcome.png";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
