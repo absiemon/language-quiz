@@ -1,6 +1,7 @@
 import { Box, LinearProgress } from "@mui/material";
 import React from "react";
 
+//Component to show progress bar
 function LinearProgressWithLabel(props) {
   return (
     <Box sx={{ display: "flex", alignItems: "center" }}>

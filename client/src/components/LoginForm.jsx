@@ -8,6 +8,7 @@ function LoginForm({ isLoginForm, setIsLoginForm }) {
   const { setIsAuthenticated, setUser, setSnackbar } = useContext(QuizContext);
   const navigate = useNavigate();
 
+  //State for showing errors for invalid value of inputs
   const [error, setError] = useState({
     emailError: false,
     passwordError: false,
@@ -55,9 +56,11 @@ function LoginForm({ isLoginForm, setIsLoginForm }) {
       });
   };
 
+
   const handleChange = (e, field) => {
     const text = e.target.value;
     const newField = field + "Error";
+    // Removing error state if value in particular input is changes
     if (text) {
       setError((prev) => {
         return { ...prev, [newField]: false };

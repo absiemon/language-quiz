@@ -1,6 +1,7 @@
 import CompletedExcerciseModel from "../models/CompletedExcerciseModel.js";
 import LastExcerciseModel from "../models/LastExcerciseModel.js";
 
+//Function to create completed Excercise for a particular language when user will submit the test
 export const createCompletedExcercise = async (body) => {
   const { userId, excerciseNo, language, score, maxScore } = body;
 
@@ -8,9 +9,9 @@ export const createCompletedExcercise = async (body) => {
     throw new Error("All Fields are required");
   }
   try {
+    // getting percentage score by diving it by total marks
     const marks = score / maxScore;
     const proficiency = (marks.toFixed(2) * 100).toString();
-    console.log(proficiency);
 
     const data = new CompletedExcerciseModel({
       userId,
@@ -34,10 +35,12 @@ export const getAllCompletedExcercise = async (req, res) => {
     const user = req.user;
     const userId = user?._id;
     //getting all Completed Excercises for all languages that user has attempted test.
+
     const allCompletedExcercises = await CompletedExcerciseModel.find({
       userId,
     });
 
+    // Gruping the result based on language
     const groupedByLanguage = allCompletedExcercises.reduce((acc, obj) => {
       const language = obj.language;
       if (!acc[language]) {
@@ -70,8 +73,11 @@ export const deleteUserHistory = async (req, res) => {
     //getting the user from req object embedded by middleware after verification of token
     const user = req.user;
     const userId = user?._id;
-    //getting all Completed Excercises for all languages that user has attempted test.
+
+    //deleting all Completed Excercises for all languages that user has attempted test.
     await CompletedExcerciseModel.deleteMany({ userId });
+
+    //deleting last Completed Excercises for all languages that user has attempted test.
     await LastExcerciseModel.deleteMany({ userId });
     const response = {
       status: true,
@@ -86,10 +92,13 @@ export const deleteUserHistory = async (req, res) => {
   }
 };
 
+// Function to show leaderboard for a partucular language
 export const leaderBoard = async (req, res) => {
   const { language } = req.query;
 
   try {
+
+    // Using aggregation pipeline to get sum of the score for all unique user in a particular language
     const result = await CompletedExcerciseModel.aggregate([
       {
         $match: {
@@ -131,6 +140,8 @@ export const leaderBoard = async (req, res) => {
       },
     ]);
 
+
+    // building response structure
     const response = {
       status: true,
       content: {

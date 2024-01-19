@@ -5,7 +5,9 @@ import LoginForm from "../components/LoginForm";
 import SignUpForm from "../components/SignUpForm";
 
 function AuthPage() {
+  //state to check whether login or siginup form will be rendered
   const [isLoginForm, setIsLoginForm] = useState(true);
+
   return (
     <main className="bg-emerald-100 h-[100vh]" >
       <Link

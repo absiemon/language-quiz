@@ -7,6 +7,7 @@ import { QuizContext } from "../context/QuizContext";
 import NotingToShowHere from "./NotingToShowHere";
 import LoadingPage from "./LoadingPage";
 
+// Component for performance tab
 function Performance() {
   const { setSnackbar } = useContext(QuizContext);
   const [completedModules, setCompletedModules] = useState([]);

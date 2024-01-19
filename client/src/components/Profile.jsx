@@ -7,6 +7,7 @@ import CustomSnackbar from "./CustomSnackbar";
 function Profile() {
   const { setSnackbar, user} = useContext(QuizContext);
 
+  //Function to reset history.
   const handleClearHistory = async () => {
     const token = localStorage.getItem("token");
 

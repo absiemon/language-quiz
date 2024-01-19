@@ -20,7 +20,9 @@ function SelectLanguage() {
   } = useContext(QuizContext);
   const [loading, setLoading] = useState(false);
 
+
   const handleStartTest = async () => {
+    //if user has not selected any language show message
     if (!optLanguage) {
       setSnackbar((prev) => {
         return { ...prev, open: true, message:"Please select a language.." };

@@ -7,18 +7,19 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 
 import connectDB from "./config/DbConnection.js";
+import QuestionModel from './models/QuestionModel.js';
 
 import authRouter from './router/authRouter.js'
 import questionRoute from './router/questionRoute.js'
 import completedExcerciseRoute from "./router/completedExcerciseRoute.js"
 
-import QuestionModel from './models/QuestionModel.js';
 
+// Reading json file available in data/data.json. All questions are there
 import { readFile } from 'fs/promises'; 
 const data = await readFile('./data/data.json', 'utf-8');
 const questionData = JSON.parse(data);
 
-
+// setting up express server
 const app = express();
 app.use(express.json({limit: '50mb'}));
 app.use(cookieParser())
@@ -30,6 +31,7 @@ app.use(bodyParser.json({
 app.use(morgan());
 app.disable('etag')
 
+//// setting up cors. Only allowed origin can make api request
 const allowedOrigins = ['http://localhost:5173'];
 const corsOptions = {
     credentials: true,
@@ -42,7 +44,7 @@ app.use(cors(corsOptions));
 
 await connectDB();
 
-// Function to populate MongoDB with seed data
+// Function to populate MongoDB with seed data of all questions
 const addMockData = async () => {
   try {
     
@@ -60,9 +62,11 @@ const addMockData = async () => {
   }
 };
 
+//routes
 app.use('/v1/auth', authRouter);
 app.use('/v1/questions', questionRoute);
 app.use('/v1', completedExcerciseRoute);
+
 
 const port = process.env.PORT || 8000;
 await addMockData();

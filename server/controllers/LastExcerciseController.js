@@ -1,5 +1,6 @@
 import LastExcerciseModel from "../models/LastExcerciseModel.js";
 
+// function to create Last Excercise completed record for a particular user in a particular language
 export const createAndUpdateLastCompletedExcercise = async (body) => {
   const { userId, excerciseNo, language } = body;
 

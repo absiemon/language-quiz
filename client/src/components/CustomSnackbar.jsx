@@ -2,6 +2,7 @@ import { Snackbar } from "@mui/material";
 import React, { useContext } from "react";
 import { QuizContext } from "../context/QuizContext";
 
+// Component to messages
 function CustomSnackbar() {
     const {snackbar, handleClose} = useContext(QuizContext)
     const {vertical, horizontal, open, message} = snackbar;

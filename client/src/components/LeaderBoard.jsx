@@ -10,11 +10,10 @@ import LoadingPage from "./LoadingPage";
 function LeaderBoard() {
   const { setSnackbar } = useContext(QuizContext);
   const [leaderBoard, setLeaderBoard] = useState([]);
-  const [selectedLang, setSelectedLang] = useState("Hindi");
+  const [selectedLang, setSelectedLang] = useState("Hindi");  // setting up the Hindi as a by default language
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    console.log(selectedLang)
     axios
       .get("/excercise/leader_board?language=" + selectedLang)
       .then((res) => {
@@ -29,6 +28,7 @@ function LeaderBoard() {
       });
   }, [selectedLang]);
 
+  //Function to change date in desired format of ex: 19 jan 2024
   const changeDateFormat = (date) => {
     const inputDate = new Date(date);
     const options = { day: "numeric", month: "short", year: "numeric" };

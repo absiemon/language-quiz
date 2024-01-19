@@ -3,7 +3,7 @@ import QuestionModel from "../models/QuestionModel.js";
 import { createCompletedExcercise } from "./CompletedExcerciseController.js";
 import { createAndUpdateLastCompletedExcercise } from "./LastExcerciseController.js";
 
-//storing currentExcercise questions so that marks can be evaluated after test completion.
+//Caching currentExcercise questions so that marks can be evaluated after test completion.
 let currentExcerciseQuestions = [];
 
 export const getAllQuestions = async (req, res) => {
@@ -24,9 +24,11 @@ export const getAllQuestions = async (req, res) => {
         excerciseNumber: completedExcercises + 1,
       }).sort({ difficultyLevel: 1 });
 
+      //caching result
       currentExcerciseQuestions = allQuestions;
     }
 
+    //getting questions one by one as requested by the user.
     const { question, options, difficulty, point, excerciseNumber } =
       currentExcerciseQuestions[questionNo - 1];
 
@@ -71,6 +73,7 @@ export const MarksEvaluation = async (req, res) => {
         }
       }
 
+      //removing cache result
       currentExcerciseQuestions = [];
 
       // saving completed Excercise and its marks in completedExcercise table.
@@ -107,7 +110,9 @@ export const MarksEvaluation = async (req, res) => {
 
 export const cleanUp = async (req, res) => {
   try {
-    //getting the user from req object embedded by middleware after verification of token
+
+    //Cleaning up or deleting cache if user has leaved the test from mid.
+    
     currentExcerciseQuestions = [];
     const response = {
       status: true,

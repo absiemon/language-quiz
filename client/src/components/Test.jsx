@@ -17,15 +17,16 @@ function TestPage() {
     excerciseLen,
   } = useContext(QuizContext);
   const navigate = useNavigate()
-  const [progress, setProgress] = useState(20);
-  const [selectedAns, setSelectedAns] = useState("");
-  const [testData, setTestData] = useState([]);
-  // const [score, setScore] = useState({})
+  const [progress, setProgress] = useState(20);  // state to show progress in the test
+  const [selectedAns, setSelectedAns] = useState("");  // state to handle selected answer for a partucualr question
+  const [testData, setTestData] = useState([]);  // state to handle submitted answers for questions
 
   const [loading, setLoading] = useState(false);
 
+  // fuction for getting next question
   const handleNextQuestion = async () => {
     const token = localStorage.getItem("token");
+  // setting up the state for selected ans of each question
     setTestData((prev) => {
       let arr = [...prev];
       arr.push({
@@ -100,8 +101,6 @@ function TestPage() {
   useEffect(() => {
     //Cleaning up when the componet unmount. Reason is that when some one leave the test in mid.
     return async () => {
-
-
       await axios
       .delete('/questions/cleanup')
       .then((res) => {

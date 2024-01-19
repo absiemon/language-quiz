@@ -22,6 +22,7 @@ import LeaderBoard from "./components/LeaderBoard";
 
 axios.defaults.baseURL = "http://localhost:8000/v1";
 
+//If user is authorized then send user to the Protected Route else Navigate to auth page.
 const ProtectedRoute = ({ element, isAuthenticated }) => {
   return isAuthenticated ? element : <Navigate to="/auth" />;
 };
@@ -31,8 +32,9 @@ function App() {
 
   const { isAuthenticated, setIsAuthenticated, setUser, isAppLoading, setisAppLoading } =
     useContext(QuizContext);
-  const [loading, setLoading] = useState(false);
 
+  //User verification through the token. 
+  // May be a unauthorized user temper the token avaialable in local storage
   useEffect(() => {
     const token = localStorage.getItem("token");
     axios

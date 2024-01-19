@@ -6,12 +6,6 @@ import { QuizContext } from "../context/QuizContext";
 function IndexPage() {
   const navigate = useNavigate();
   const { isAuthenticated } = useContext(QuizContext);
-  useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("authToken"));
-    if (token) {
-      navigate("/home");
-    }
-  }, []);
 
   return (
     <Box

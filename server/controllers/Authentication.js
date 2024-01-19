@@ -16,6 +16,7 @@ export const register = async (req, res) => {
     if (!validator.isEmail(email)) {
       return res.status(400).json({ error: "Please give a valid email" });
     }
+
     //checking if a user with same email address is already there
     // we can also restrict duplicate entry by adding a compund index in mongodb
     const existingUser = await UserModel.findOne({ email });
@@ -32,7 +33,8 @@ export const register = async (req, res) => {
       // hashing password
       const salt = await bcrypt.genSalt(10);
       const secPassword = await bcrypt.hash(password, salt);
-      //generating id using snowflake
+
+      //creating user
       const user = new UserModel({ name, email, password: secPassword });
       await user.save();
 
@@ -47,7 +49,7 @@ export const register = async (req, res) => {
             res.status(500).json({ error: "Error in creating token" });
           }
           const created_at = user.createdAt;
-          //generating response format as required
+          //generating response format 
           const response = genResponseFromat(
             id,
             name,
@@ -57,7 +59,7 @@ export const register = async (req, res) => {
           );
           res.cookie('token', token, {
             httpOnly: true,
-            secure: false, // Make sure to set to true if your site is served over HTTPS
+            secure: false,
             sameSite: 'None', // Set SameSite attribute to 'None' for cross-site cookies
             maxAge: 24 * 60 * 60 * 1000, // 1 day in milliseconds
         });
