@@ -12,7 +12,7 @@ function CustomSnackbar() {
       <Snackbar
         anchorOrigin={{ vertical, horizontal }}
         open={open}
-        autoHideDuration={3000}
+        autoHideDuration={1000000}
         onClose={handleClose}
         message={message}
         key={vertical + horizontal}
