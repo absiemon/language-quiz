@@ -6,7 +6,7 @@ import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 
-import connectDB from "./config/DbConnection.js";
+import connectDB from "./config/dbConnection.js";
 import QuestionModel from './models/QuestionModel.js';
 
 import authRouter from './router/authRouter.js'
