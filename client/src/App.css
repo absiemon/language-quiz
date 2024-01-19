@@ -41,6 +41,10 @@ input[type=number]::-webkit-inner-spin-button {
   background-color: #083156 !important;
   margin-top: 3px;
 }
+.css-pwxzbm{
+  background-color: #083156 !important;
+  margin-top: 3px;
+}
 
 .css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root{
   background-color:#083156 !important;
@@ -57,3 +61,9 @@ input[type=number]::-webkit-inner-spin-button {
     gap: 10px !important;
     font-family: 'Poppins', sans-serif !important;
   }
+
+.css-qiwgdb.MuiSelect-select{
+  display: flex !important;
+  gap: 10px !important;
+  font-family: 'Poppins', sans-serif !important;
+}
