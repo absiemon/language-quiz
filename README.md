@@ -19,7 +19,7 @@ quiz.
 ## Installation
 1. Clone the project repository to your local machine:
    ```bash
-   git clone
+   git clone https://github.com/absiemon/language-quiz.git
    ```
 2. Naviagte to the client and server one by one and download the required node packages using the npm install command:
 
