@@ -69,7 +69,7 @@ function LeaderBoard() {
                 "& .MuiSvgIcon-root": {
                   color: "#D1FAE5",
                 },
-                ".css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select":
+                "& .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.MuiSelect-select":
                   {
                     display: "flex",
                     gap: "10px",
